@@ -1,1 +1,66 @@
-<p>cart works!</p>
+<ng-container *ngIf="products.length != 0">
+  <div class="container">
+    <div class="card-table mt-3">
+      <div class="cart-product">
+        <table class="table table-responsive">
+          <thead>
+            <tr>
+              <th>#ID</th>
+              <th>Product Title</th>
+              <th>Product İmage</th>
+              <th>Description</th>
+              <th>Price</th>
+              <th>Quantity</th>
+              <th>Total</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let product of products; let i = index">
+              <td>{{ i + 1 }}</td>
+              <td>{{ product.title }}</td>
+              <td>
+                <img src="{{ product.imgPath }}" alt="" style="width: 120px" />
+              </td>
+              <td>{{ product.description }}</td>
+              <td>{{ product.price }}</td>
+              <td>{{ product.quantity }}</td>
+              <td>{{ product.total }}</td>
+              <td>
+                <button class="btn btn-danger" (click)="removeItem(product)">
+                  <i class="fas fa-trash-alt"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="p-3 d-flex justify-content-end mb-5">
+          <button class="btn btn-danger m-1" (click)="removeAll()">
+            Delete All
+          </button>
+          <button class="btn btn-primary m-1" routerLink="/">Shop More</button>
+          <button class="btn btn-success m-1" routerLink="/checkout">
+            Checkout
+          </button>
+          <strong class="text-center p-3"
+            >Grand Total: ${{ grandTotal }}</strong
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="products.length == 0">
+  <div class="container">
+    <div class="card">
+      <h4 class="card-title">My Cart</h4>
+    </div>
+    <div class="card-center">
+      <img src="../../../assets/img/cart-logo.jfif" alt="" />
+      <h3 class="card-center-text">Your cart is empty!</h3>
+      <h5>Add item to it now</h5>
+      <button class="btn btn-primary" routerLink="/">Shop Now</button>
+    </div>
+  </div>
+</ng-container>

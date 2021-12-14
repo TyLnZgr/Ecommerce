@@ -1,7 +1,10 @@
 <header id="header" class="sticky-top">
   <nav class="navbar navbar-expand navbar-dark bg-dark py-">
     <div class="container-fluid">
-      <a class="navbar-brand ps-5">E-Commerce</a>
+      <a class="navbar-brand ps-5" routerLink="/">
+        <img src="../../../assets/img/logo.png" alt="Logo" class="logo" />
+        E-Commerce
+      </a>
       <div class="collapse navbar-collapse">
         <ul class="navbar-nav ms-auto pe-5">
           <li class="nav-item">
@@ -16,7 +19,7 @@
               routerLink="/cart"
             >
             </i>
-            <div class="qty">0</div>
+            <div class="qty">{{ totalItem }}</div>
           </li>
         </ul>
       </div>

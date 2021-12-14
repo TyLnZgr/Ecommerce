@@ -6,7 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ProductComponent } from './components/product/product.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/products', pathMatch: 'full' },
+  { path: '', component: ProductsComponent },
   { path: 'products', component: ProductsComponent },
   { path: 'products/:id', component: ProductComponent },
   { path: 'cart', component: CartComponent },

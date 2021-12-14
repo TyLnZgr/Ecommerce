@@ -1,5 +1,5 @@
 <main class="container">
-  <div class="row">
+  <div class="row mb-5">
     <div
       class="col-3 mt-5"
       *ngFor="
@@ -7,7 +7,7 @@
           | paginate: { itemsPerPage: 10, currentPage: page }
       "
     >
-      <div class="card shadow-sm card-width-height">
+      <div class="card shadow card-width-height">
         <img
           [src]="product.imgPath"
           class="card-img-top bg-light p-2 cursor"
@@ -22,7 +22,9 @@
             {{ product.description }}
           </p>
           <p class="card-text">{{ product.price | currency: "$" }}</p>
-          <a class="btn btn-outline-secondary">Sepete Ekle</a>
+          <a class="btn btn-outline-secondary" (click)="addToCart(product)"
+            >Sepete Ekle</a
+          >
         </div>
       </div>
     </div>

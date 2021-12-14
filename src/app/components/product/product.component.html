@@ -11,7 +11,9 @@
         {{ productData.description }}
       </p>
       <p class="card-text">{{ productData.price | currency: "$" }}</p>
-      <a class="btn btn-outline-primary">Sepete Ekle</a>
+      <a class="btn btn-outline-primary" (click)="addToCart(productData)"
+        >Sepete Ekle</a
+      >
     </div>
   </div>
 </div>
