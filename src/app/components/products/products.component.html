@@ -1,0 +1,31 @@
+<main class="container">
+  <div class="row">
+    <div
+      class="col-3 mt-5"
+      *ngFor="
+        let product of products
+          | paginate: { itemsPerPage: 10, currentPage: page }
+      "
+    >
+      <div class="card shadow-sm card-width-height">
+        <img
+          [src]="product.imgPath"
+          class="card-img-top bg-light p-2 cursor"
+          alt="Product-İmage"
+        />
+        <div class="card-body">
+          <h5 class="card-title bg-light bg-gradient">
+            {{ product.title | titlecase }}
+          </h5>
+          <p class="card-text">
+            {{ product.description }}
+          </p>
+          <p class="card-text">{{ product.price }} TL</p>
+          <a class="btn btn-outline-secondary">Sepete Ekle</a>
+        </div>
+      </div>
+    </div>
+    <pagination-controls (pageChange)="page = $event" class="text-center mt-5">
+    </pagination-controls>
+  </div>
+</main>

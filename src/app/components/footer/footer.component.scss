@@ -1,0 +1,21 @@
+footer {
+  background-color: #14151a;
+  height: 3rem;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+.copyright {
+  height: 100%;
+
+  p {
+    color: #fff;
+    text-align: center;
+    line-height: 3rem;
+    font-size: 1.2rem;
+  }
+}
