@@ -1,8 +1,8 @@
 import { ProductService } from 'src/app/services/product.service';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { CartService } from 'src/app/services/cart.service';
-
+declare let alertify: any;
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
@@ -27,5 +27,6 @@ export class ProductComponent implements OnInit {
   }
   addToCart(product: any) {
     this.cartService.addToCart(product);
+    alertify.success('Ürün başarıyla eklendi');
   }
 }

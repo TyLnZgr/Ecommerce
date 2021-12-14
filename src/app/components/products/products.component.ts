@@ -2,7 +2,7 @@ import { CartService } from './../../services/cart.service';
 import { Product } from './../../models/product.model';
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from 'src/app/services/product.service';
-import { Router } from '@angular/router';
+declare let alertify: any;
 
 @Component({
   selector: 'app-products',
@@ -29,5 +29,6 @@ export class ProductsComponent implements OnInit {
 
   addToCart(product: any) {
     this.cartService.addToCart(product);
+    alertify.success('Ürün başarıyla eklendi');
   }
 }
