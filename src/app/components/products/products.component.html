@@ -12,6 +12,7 @@
           [src]="product.imgPath"
           class="card-img-top bg-light p-2 cursor"
           alt="Product-İmage"
+          [routerLink]="['/products/', product.id]"
         />
         <div class="card-body">
           <h5 class="card-title bg-light bg-gradient">
@@ -20,7 +21,7 @@
           <p class="card-text">
             {{ product.description }}
           </p>
-          <p class="card-text">{{ product.price }} TL</p>
+          <p class="card-text">{{ product.price | currency: "$" }}</p>
           <a class="btn btn-outline-secondary">Sepete Ekle</a>
         </div>
       </div>

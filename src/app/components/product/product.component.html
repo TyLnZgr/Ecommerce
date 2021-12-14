@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <img [src]="productData.imgPath" class="img" alt="..." />
+    </div>
+    <div class="col-6 position">
+      <h5>
+        {{ productData.title | titlecase }}
+      </h5>
+      <p class="card-text">
+        {{ productData.description }}
+      </p>
+      <p class="card-text">{{ productData.price | currency: "$" }}</p>
+      <a class="btn btn-outline-primary">Sepete Ekle</a>
+    </div>
+  </div>
+</div>

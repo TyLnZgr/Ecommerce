@@ -6,10 +6,14 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class ProductService {
-  SERVER_URL = 'http://localhost:3000/products';
+  SERVER_URL = 'http://localhost:3000/products/';
   constructor(private http: HttpClient) {}
 
   getAllProducts() {
     return this.http.get(this.SERVER_URL);
+  }
+
+  getProductById(id: number) {
+    return this.http.get(this.SERVER_URL + id);
   }
 }
