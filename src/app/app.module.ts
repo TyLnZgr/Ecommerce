@@ -12,6 +12,8 @@ import { ProductComponent } from './components/product/product.component';
 import { FormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { HttpClientModule } from '@angular/common/http';
+import { ErrorComponent } from './components/error/error.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,8 @@ import { HttpClientModule } from '@angular/common/http';
     ProductsComponent,
     CheckoutComponent,
     ProductComponent,
+    ErrorComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

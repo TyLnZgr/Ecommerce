@@ -29,6 +29,6 @@ export class ProductsComponent implements OnInit {
 
   addToCart(product: any) {
     this.cartService.addToCart(product);
-    alertify.success('Ürün başarıyla eklendi');
+    alertify.success(`<i class="fas fa-check"> Ürün başarıyla eklendi`);
   }
 }

@@ -26,9 +26,15 @@
               <td>{{ product.price }}</td>
               <td>{{ product.quantity }}</td>
               <td>{{ product.total }}</td>
-              <td>
-                <button class="btn btn-danger" (click)="removeItem(product)">
+              <td class="d-flex">
+                <button
+                  class="btn btn-danger m-1"
+                  (click)="removeItem(product)"
+                >
                   <i class="fas fa-trash-alt"></i>
+                </button>
+                <button class="btn btn-success m-1" (click)="addItem(product)">
+                  <i class="fas fa-plus-square"></i>
                 </button>
               </td>
             </tr>
@@ -38,7 +44,9 @@
           <button class="btn btn-danger m-1" (click)="removeAll()">
             Delete All
           </button>
-          <button class="btn btn-primary m-1" routerLink="/">Shop More</button>
+          <button class="btn btn-primary m-1" routerLink="/products">
+            Shop More
+          </button>
           <button class="btn btn-success m-1" routerLink="/checkout">
             Checkout
           </button>
@@ -60,7 +68,7 @@
       <img src="../../../assets/img/cart-logo.jfif" alt="" />
       <h3 class="card-center-text">Your cart is empty!</h3>
       <h5>Add item to it now</h5>
-      <button class="btn btn-primary" routerLink="/">Shop Now</button>
+      <button class="btn btn-primary" routerLink="/products">Shop Now</button>
     </div>
   </div>
 </ng-container>

@@ -1,1 +1,139 @@
-<p>checkout works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 mx-auto mt-5">
+      <form (ngSubmit)="SuccessCheckout(f)" #f="ngForm">
+        <div class="card">
+          <div class="card-header">
+            <strong>Credit Card </strong>
+            <small> -Enter your card details</small>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="form-group p-2">
+                  <label
+                    >Total Price:
+                    <strong class="fs-2">{{
+                      grandTotal | currency: "$"
+                    }}</strong></label
+                  >
+                </div>
+                <div class="form-group p-2">
+                  <label for="name">Name</label>
+                  <input
+                    class="form-control"
+                    id="name"
+                    type="text"
+                    placeholder="Enter your name"
+                    name="name"
+                    ngModel
+                    required
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="form-group p-2">
+                  <label for="ccnumber">Credit Card Number</label>
+                  <div class="input-group">
+                    <input
+                      class="form-control"
+                      type="tel"
+                      placeholder="0000 0000 0000 0000"
+                      autocomplete="email"
+                      name="cart-number"
+                      ngModel
+                      required
+                      inputmode="numeric"
+                      pattern="[0-9\s]{13,19}"
+                      autocomplete="cc-number"
+                      maxlength="19"
+                    />
+                    <div class="input-group-append">
+                      <span class="input-group-text">
+                        <i class="far fa-credit-card p-1"></i>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group col-sm-4 p-2">
+                <label for="ccmonth">Month</label>
+                <select
+                  class="form-control"
+                  id="ccmonth"
+                  name="mounth"
+                  ngModel
+                  required
+                >
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                  <option>6</option>
+                  <option>7</option>
+                  <option>8</option>
+                  <option>9</option>
+                  <option>10</option>
+                  <option>11</option>
+                  <option>12</option>
+                </select>
+              </div>
+              <div class="form-group col-sm-4 p-2">
+                <label for="ccyear">Year</label>
+                <select
+                  class="form-control"
+                  id="ccyear"
+                  name="year"
+                  ngModel
+                  required
+                >
+                  <option>2014</option>
+                  <option>2015</option>
+                  <option>2016</option>
+                  <option>2017</option>
+                  <option>2018</option>
+                  <option>2019</option>
+                  <option>2020</option>
+                  <option>2021</option>
+                  <option>2022</option>
+                  <option>2023</option>
+                  <option>2024</option>
+                  <option>2025</option>
+                </select>
+              </div>
+              <div class="col-sm-4">
+                <div class="form-group p-2">
+                  <label for="cvv">CVV/CVC</label>
+                  <input
+                    class="form-control"
+                    id="cvv"
+                    type="text"
+                    placeholder="123"
+                    name="cvv"
+                    maxlength="3"
+                    ngModel
+                    required
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer p-3">
+            <button
+              class="btn btn-sm btn-success rounded"
+              type="submit"
+              [disabled]="!f.valid"
+            >
+              <i class="fas fa-check"></i> Complete Your Shopping
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
