@@ -2,7 +2,7 @@ import { CartService } from './../../services/cart.service';
 import { Product } from './../../models/product.model';
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from 'src/app/services/product.service';
-declare let alertify: any;
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-products',
@@ -14,7 +14,8 @@ export class ProductsComponent implements OnInit {
   products: Product[] = [];
   constructor(
     private productService: ProductService,
-    private cartService: CartService
+    private cartService: CartService,
+    private toastr: ToastrService
   ) {}
 
   ngOnInit(): void {
@@ -29,6 +30,6 @@ export class ProductsComponent implements OnInit {
 
   addToCart(product: any) {
     this.cartService.addToCart(product);
-    alertify.success(`<i class="fas fa-check"> Ürün başarıyla eklendi`);
+    this.toastr.success('The product has been successfully added');
   }
 }

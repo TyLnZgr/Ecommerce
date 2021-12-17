@@ -13,8 +13,14 @@ import { FormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { HttpClientModule } from '@angular/common/http';
 import { ErrorComponent } from './components/error/error.component';
+import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
 import { LoginComponent } from './components/login/login.component';
-
+import { AngularFireModule } from '@angular/fire/compat';
+import { environment } from '../environments/environment';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SignupComponent } from './components/signup/signup.component';
+import { MustMatchDirective } from './helper/must-match.directive';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,14 +31,20 @@ import { LoginComponent } from './components/login/login.component';
     CheckoutComponent,
     ProductComponent,
     ErrorComponent,
+    LoadingSpinnerComponent,
     LoginComponent,
+    SignupComponent,
+    MustMatchDirective,
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     NgxPaginationModule,
+    ToastrModule.forRoot(),
     FormsModule,
     HttpClientModule,
+    AngularFireModule.initializeApp(environment.firebase),
   ],
   providers: [],
   bootstrap: [AppComponent],

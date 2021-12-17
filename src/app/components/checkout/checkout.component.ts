@@ -1,7 +1,9 @@
 import { CartService } from 'src/app/services/cart.service';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-declare let alertify: any;
+import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-checkout',
   templateUrl: './checkout.component.html',
@@ -9,7 +11,11 @@ declare let alertify: any;
 })
 export class CheckoutComponent implements OnInit {
   grandTotal;
-  constructor(private cartService: CartService) {}
+  constructor(
+    private cartService: CartService,
+    private toastr: ToastrService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.grandTotal = this.cartService.getTotalPrice();
@@ -17,9 +23,10 @@ export class CheckoutComponent implements OnInit {
   }
 
   SuccessCheckout(form: NgForm) {
-    alertify.success(
+    this.toastr.success(
       `Toplam Ödeme: ${this.grandTotal}  başarıyla gerçekleşti <i class="fas fa-check">`
     );
     form.reset();
+    this.router.navigate(['/products']);
   }
 }

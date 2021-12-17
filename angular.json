@@ -52,11 +52,10 @@
             "styles": [
               "node_modules/@fortawesome/fontawesome-free/css/all.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "node_modules/alertifyjs/build/css/alertify.min.css",
-              "node_modules/alertifyjs/build/css/themes/bootstrap.min.css",
+              "node_modules/ngx-toastr/toastr.css",
               "src/styles.scss"
             ],
-            "scripts": ["node_modules/alertifyjs/build/alertify.min.js"]
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -120,6 +119,16 @@
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": ["src/styles.scss"],
             "scripts": []
+          }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "ecommerce:build:production",
+            "firebaseProject": "ecommerceauth-30ba7",
+            "firebaseHostingSite": "ecommerceauth-30ba7"
           }
         }
       }

@@ -1,0 +1,102 @@
+<div class="form-signin">
+  <form
+    (ngSubmit)="f.form.valid && signup()"
+    name="form"
+    #f="ngForm"
+    [mustMatch]="['password', 'confirmPassword']"
+  >
+    <div class="text-center">
+      <i class="fas fa-sign-in-alt fa-7x mb-4"></i>
+    </div>
+    <h1 class="h3 mb-3 text-center">Sign Up</h1>
+
+    <div class="form-floating form-group">
+      <input
+        type="email"
+        class="form-control"
+        id="floatingInput"
+        placeholder="name@example.com"
+        name="email"
+        [(ngModel)]="user.email"
+        #emailInput="ngModel"
+        required
+        email
+        [ngClass]="{ 'is-invalid': emailInput.touched && emailInput.invalid }"
+      />
+      <label for="floatingInput">Email address</label>
+    </div>
+    <div *ngIf="emailInput.invalid && emailInput.touched">
+      <div *ngIf="emailInput.errors ?.['required']">Email is required</div>
+      <div *ngIf="emailInput.errors ?.['email']">
+        Email must be a valid Email address
+      </div>
+    </div>
+    <div class="form-floating form-group">
+      <input
+        type="password"
+        class="form-control"
+        id="floatingPassword"
+        placeholder="Password"
+        name="password"
+        [(ngModel)]="user.password"
+        minlength="6"
+        required
+        #password="ngModel"
+        [ngClass]="{
+          'is-invalid': password.touched && password.invalid
+        }"
+      />
+      <label for="floatingPassword">Password</label>
+    </div>
+    <div *ngIf="password.invalid && password.touched">
+      <div *ngIf="password.errors ?.['required']">Password is required</div>
+      <div *ngIf="password.errors ?.['minlength']">
+        Password must be at least 6 characters
+      </div>
+    </div>
+    <div class="form-floating form-group">
+      <input
+        type="password"
+        class="form-control"
+        id="floatingCPassword"
+        placeholder="Password"
+        name="confirPassword"
+        [(ngModel)]="user.confirmPassword"
+        minlength="6"
+        required
+        #confirmPassword="ngModel"
+        [ngClass]="{
+          'is-invalid': confirmPassword.touched && confirmPassword.invalid
+        }"
+      />
+      <label for="floatingCPassword">Confirm Password</label>
+    </div>
+    <div *ngIf="confirmPassword.invalid && confirmPassword.touched">
+      <div *ngIf="confirmPassword.errors ?.['required']">
+        Password is required
+      </div>
+      <div *ngIf="confirmPassword.errors ?.['minlength']">
+        Password must be at least 6 characters
+      </div>
+      <div *ngIf="confirmPassword.errors?.['mustMatch']">
+        Password must be matched!
+      </div>
+    </div>
+    <button
+      class="w-100 btn btn-lg btn-dark mb-2"
+      type="submit"
+      [disabled]="f.form.invalid"
+    >
+      Sign Up
+    </button>
+    <hr />
+    <button
+      class="w-100 btn btn-lg btn-dark mb-2"
+      type="button"
+      (click)="signupWithGoogle()"
+    >
+      <i class="fab fa-google"></i>
+      Sign Up with Google
+    </button>
+  </form>
+</div>

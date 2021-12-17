@@ -2,7 +2,8 @@ import { ProductService } from 'src/app/services/product.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CartService } from 'src/app/services/cart.service';
-declare let alertify: any;
+import { ToastrService } from 'ngx-toastr';
+
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
@@ -14,7 +15,8 @@ export class ProductComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private productService: ProductService,
-    private cartService: CartService
+    private cartService: CartService,
+    private toastr: ToastrService
   ) {}
 
   ngOnInit(): void {
@@ -27,6 +29,6 @@ export class ProductComponent implements OnInit {
   }
   addToCart(product: any) {
     this.cartService.addToCart(product);
-    alertify.success('Ürün başarıyla eklendi');
+    this.toastr.success('The product has been successfully added');
   }
 }
