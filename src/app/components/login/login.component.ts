@@ -22,7 +22,9 @@ export class LoginComponent implements OnInit {
     this.authService
       .login(this.email, this.password)
       .then(() => {
-        this.toastr.success('Logged in was succesfull');
+        this.toastr.success('Logged in was succesfull', '', {
+          positionClass: 'toast-bottom-right',
+        });
         this.router.navigate(['/products']);
       })
       .catch((err) => {

@@ -29,6 +29,8 @@ export class ProductComponent implements OnInit {
   }
   addToCart(product: any) {
     this.cartService.addToCart(product);
-    this.toastr.success('The product has been successfully added');
+    this.toastr.success('The product has been successfully added', '', {
+      positionClass: 'toast-bottom-right',
+    });
   }
 }

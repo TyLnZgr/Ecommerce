@@ -30,7 +30,9 @@ export class HeaderComponent implements OnInit {
 
   logout() {
     this.authService.logout();
-    this.toastr.info('You are now logged out');
-    this.router.navigate(['/login']);
+    this.toastr.info('You are now logged out', '', {
+      positionClass: 'toast-bottom-right',
+    });
+    this.router.navigate(['/products']);
   }
 }

@@ -1,5 +1,5 @@
 <header id="header" class="sticky-top">
-  <nav class="navbar navbar-expand navbar-dark bg-dark py-">
+  <nav class="navbar navbar-expand navbar-dark bg-dark p-3">
     <div class="container-fluid">
       <a class="navbar-brand ps-5" routerLink="/products">
         <img src="../../../assets/img/logo.png" alt="Logo" class="logo" />
@@ -16,13 +16,15 @@
             <a class="nav-link fs-5" routerLink="/login" *ngIf="!user">Login</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link fs-5" routerLink="/signup">Sign Up</a>
+            <a class="nav-link fs-5" routerLink="/signup" *ngIf="!user"
+              >Sign Up</a
+            >
           </li>
           <li class="nav-item">
             <a class="nav-link fs-5" (click)="logout()" *ngIf="user">Logout</a>
           </li>
 
-          <li class="nav-item" *ngIf="user">
+          <li class="nav-item">
             <i
               class="fas fa-shopping-cart cart-icon bg-dark mt-2 ms-3"
               routerLink="/cart"

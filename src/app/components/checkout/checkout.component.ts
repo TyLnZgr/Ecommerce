@@ -24,7 +24,11 @@ export class CheckoutComponent implements OnInit {
 
   SuccessCheckout(form: NgForm) {
     this.toastr.success(
-      `Toplam Ödeme: ${this.grandTotal}  başarıyla gerçekleşti <i class="fas fa-check">`
+      `Toplam Ödeme: ${this.grandTotal}  başarıyla gerçekleşti `,
+      '',
+      {
+        positionClass: 'toast-bottom-right',
+      }
     );
     form.reset();
     this.router.navigate(['/products']);
