@@ -19,7 +19,6 @@ export class CheckoutComponent implements OnInit {
 
   ngOnInit(): void {
     this.grandTotal = this.cartService.getTotalPrice();
-    console.log(this.grandTotal);
   }
 
   SuccessCheckout(form: NgForm) {
@@ -31,6 +30,6 @@ export class CheckoutComponent implements OnInit {
       }
     );
     form.reset();
-    this.router.navigate(['/products']);
+    /* this.router.navigate(['/products']); */
   }
 }

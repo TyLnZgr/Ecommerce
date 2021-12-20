@@ -1,3 +1,4 @@
+import { ThankYouComponent } from './components/thank-you/thank-you.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { ErrorComponent } from './components/error/error.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'cart', component: CartComponent },
   { path: 'checkout', component: CheckoutComponent },
   { path: 'not-found', component: ErrorComponent },
+  { path: 'thank-you', component: ThankYouComponent },
   { path: '**', redirectTo: '/not-found' },
 ];
 

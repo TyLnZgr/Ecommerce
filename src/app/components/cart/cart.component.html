@@ -47,7 +47,11 @@
           <button class="btn btn-primary m-1" routerLink="/products">
             Shop More
           </button>
-          <button class="btn btn-success m-1" routerLink="/checkout">
+          <button
+            class="btn btn-success m-1"
+            routerLink="/checkout"
+            [disabled]="!user"
+          >
             Checkout
           </button>
           <strong class="text-center p-3"

@@ -10,6 +10,7 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./products.component.scss'],
 })
 export class ProductsComponent implements OnInit {
+  filterText: string = '';
   page: number = 1;
   products: Product[] = [];
   constructor(

@@ -21,6 +21,9 @@ import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SignupComponent } from './components/signup/signup.component';
 import { MustMatchDirective } from './helper/must-match.directive';
+import { ThankYouComponent } from './components/thank-you/thank-you.component';
+import { FilterPipe } from './pipes/filter.pipe';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,6 +38,8 @@ import { MustMatchDirective } from './helper/must-match.directive';
     LoginComponent,
     SignupComponent,
     MustMatchDirective,
+    ThankYouComponent,
+    FilterPipe,
   ],
   imports: [
     BrowserModule,
