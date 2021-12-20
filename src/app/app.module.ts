@@ -13,7 +13,6 @@ import { FormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { HttpClientModule } from '@angular/common/http';
 import { ErrorComponent } from './components/error/error.component';
-import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
 import { LoginComponent } from './components/login/login.component';
 import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from '../environments/environment';
@@ -34,7 +33,6 @@ import { FilterPipe } from './pipes/filter.pipe';
     CheckoutComponent,
     ProductComponent,
     ErrorComponent,
-    LoadingSpinnerComponent,
     LoginComponent,
     SignupComponent,
     MustMatchDirective,

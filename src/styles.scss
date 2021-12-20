@@ -11,3 +11,20 @@ html {
   scroll-behavior: smooth;
   height: 100vh;
 }
+
+body {
+  background: #abbaab;
+  background: -webkit-linear-gradient(to right, #ffffff, #abbaab);
+  background: linear-gradient(to right, #ffffff, #abbaab);
+  /* background: #334d50; 
+  background: -webkit-linear-gradient(
+    to right,
+    #cbcaa5,
+    #334d50
+  ); 
+  background: linear-gradient(
+    to right,
+    #cbcaa5,
+    #334d50
+  );  */
+}
