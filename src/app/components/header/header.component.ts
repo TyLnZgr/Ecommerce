@@ -1,6 +1,6 @@
 import { AuthService } from './../../services/auth.service';
 import { CartService } from './../../services/cart.service';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 
@@ -11,7 +11,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class HeaderComponent implements OnInit {
   user: any;
-  public totalItem: number = 0;
+  itemInCart: number;
   constructor(
     private cartService: CartService,
     private authService: AuthService,
@@ -20,8 +20,8 @@ export class HeaderComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.cartService.getProducts().subscribe((res) => {
-      this.totalItem = res.length;
+    this.cartService.cartItems.subscribe((d) => {
+      this.itemInCart = d.length;
     });
     this.authService.getAuth().subscribe((user) => {
       this.user = user;

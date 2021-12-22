@@ -1,3 +1,4 @@
+import { Product } from './../../models/product.model';
 import { ProductService } from 'src/app/services/product.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
@@ -10,8 +11,8 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./product.component.scss'],
 })
 export class ProductComponent implements OnInit {
-  productID: number;
-  productData;
+  product: Product;
+  displayedImage = 0;
   constructor(
     private route: ActivatedRoute,
     private productService: ProductService,
@@ -20,15 +21,12 @@ export class ProductComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.route.params.subscribe((data) => {
-      this.productID = data['id'];
-    });
-    this.productService.getProductById(this.productID).subscribe((prod) => {
-      this.productData = prod;
-    });
+    const id = +this.route.snapshot.params['id'];
+    this.product = this.productService.getProductById(id);
   }
-  addToCart(product: any) {
-    this.cartService.addToCart(product);
+
+  addToCart(product: Product) {
+    this.cartService.addItemToCart(product);
     this.toastr.success('The product has been successfully added', '', {
       positionClass: 'toast-bottom-right',
     });

@@ -13,6 +13,7 @@ export class ProductsComponent implements OnInit {
   filterText: string = '';
   page: number = 1;
   products: Product[] = [];
+  product: Product;
   constructor(
     private productService: ProductService,
     private cartService: CartService,
@@ -20,17 +21,10 @@ export class ProductsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.productService.getAllProducts().subscribe((prods: Product[]) => {
-      this.products = prods;
-
-      this.products.forEach((a: any) => {
-        Object.assign(a, { quantity: 1, total: a.price });
-      });
-    });
+    this.products = this.productService.getAllProducts();
   }
-
-  addToCart(product: any) {
-    this.cartService.addToCart(product);
+  addToCart(product: Product) {
+    this.cartService.addItemToCart(product);
     this.toastr.success('The product has been successfully added', '', {
       positionClass: 'toast-bottom-right',
     });

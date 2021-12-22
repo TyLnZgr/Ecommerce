@@ -1,0 +1,47 @@
+.card {
+  height: 70vh;
+  margin: 25px;
+  padding: 25px;
+}
+
+.card-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.card-center img {
+  text-decoration: none;
+  color: inherit;
+  border: none;
+  outline: none;
+  height: 10rem;
+  width: 250px;
+  margin: 20px 0;
+  border-radius: 30%;
+}
+
+.card-center-text {
+  font-weight: 400;
+}
+
+.card-table {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  min-width: none;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 0.25rem;
+}
+/*# sourceMappingURL=cart.component.css.map */

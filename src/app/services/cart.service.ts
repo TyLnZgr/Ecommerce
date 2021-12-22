@@ -1,3 +1,4 @@
+import { Product } from './../models/product.model';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
@@ -5,46 +6,46 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root',
 })
 export class CartService {
-  public cartItemList: any = [];
-  public productList = new BehaviorSubject<any>([]);
-
-  constructor() {}
-
-  getProducts() {
-    return this.productList.asObservable();
+  placeHolder = [];
+  cartItems = new BehaviorSubject([]);
+  constructor() {
+    const ls = this.getCartData();
+    if (ls) this.cartItems.next(ls);
   }
 
-  setProduct(product: any) {
-    this.cartItemList.push(...product);
-    this.productList.next(product);
-  }
+  addItemToCart(product: Product) {
+    const ls = this.getCartData();
+    let existItem: Product;
+    if (ls) {
+      existItem = ls.find((item) => {
+        return item.id === product.id;
+      });
+    }
 
-  addToCart(product: any) {
-    this.cartItemList.push(product);
-    this.productList.next(this.cartItemList);
-    this.getTotalPrice();
-  }
-  getTotalPrice(): number {
-    let grandTotal = 0;
-    this.cartItemList.map((a: any) => {
-      grandTotal += a.total;
-    });
-    return grandTotal;
-  }
-
-  removeItem(product: any) {
-    this.cartItemList.map((a: any, index: number) => {
-      if (product.id === a.id) {
-        this.cartItemList.splice(index, 1);
+    if (existItem) {
+      existItem.qty++;
+      this.setCartData(ls);
+    } else {
+      if (ls) {
+        const newData = [...ls, product];
+        this.setCartData(newData);
       }
-    });
-    this.productList.next(this.cartItemList);
+      this.placeHolder.push(product);
+      this.setCartData(this.placeHolder);
+    }
   }
-
+  setCartData(data: any) {
+    localStorage.setItem('cart', JSON.stringify(data));
+    this.cartItems.next(this.getCartData());
+  }
+  getCartData() {
+    return JSON.parse(localStorage.getItem('cart'));
+  }
   removeAllItem() {
     if (confirm('Are you sure ? ')) {
-      this.cartItemList = [];
-      this.productList.next(this.cartItemList);
+      this.placeHolder = [];
+      this.cartItems.next(this.placeHolder);
     }
+    this.setCartData(this.placeHolder);
   }
 }

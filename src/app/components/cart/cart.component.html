@@ -17,24 +17,29 @@
           </thead>
           <tbody>
             <tr *ngFor="let product of products; let i = index">
-              <td>{{ i + 1 }}</td>
+              <td>{{ i }}</td>
               <td>{{ product.title }}</td>
               <td>
-                <img src="{{ product.imgPath }}" alt="" style="width: 120px" />
+                <img
+                  src="{{ product.imgUrls[0] }}"
+                  alt=""
+                  style="width: 120px"
+                />
               </td>
-              <td>{{ product.description }}</td>
+              <td>{{ product.desc }}</td>
               <td>{{ product.price }}</td>
-              <td>{{ product.quantity }}</td>
-              <td>{{ product.total }}</td>
+              <td>
+                <input
+                  type="number"
+                  class="qty"
+                  [value]="product.qty"
+                  (blur)="validateInput($event, i)"
+                />
+              </td>
+              <td>{{ product.price * product.qty }}</td>
               <td class="d-flex">
-                <button
-                  class="btn btn-danger m-1"
-                  (click)="removeItem(product)"
-                >
+                <button class="btn btn-danger m-1" (click)="removeItem(i)">
                   <i class="fas fa-trash-alt"></i>
-                </button>
-                <button class="btn btn-success m-1" (click)="addItem(product)">
-                  <i class="fas fa-plus-square"></i>
                 </button>
               </td>
             </tr>
@@ -49,21 +54,19 @@
           </button>
           <button
             class="btn btn-success m-1"
-            routerLink="/checkout"
+            (click)="gotoCheckout()"
             [disabled]="!user"
           >
             Checkout
           </button>
-          <strong class="text-center p-3"
-            >Grand Total: ${{ grandTotal }}</strong
-          >
+          <strong class="text-center p-3">Grand Total: ${{ total }}</strong>
         </div>
       </div>
     </div>
   </div>
 </ng-container>
 
-<ng-container *ngIf="products.length == 0">
+<ng-container *ngIf="products.length < 1">
   <div class="container">
     <div class="card">
       <h4 class="card-title">My Cart</h4>

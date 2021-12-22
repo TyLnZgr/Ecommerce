@@ -23,17 +23,17 @@
     >
       <div class="card shadow card-width-height bg-light p-2">
         <img
-          [src]="product.imgPath"
+          [src]="product.imgUrls[0]"
           class="card-img-top bg-light p-2 cursor"
           alt="Product-İmage"
-          [routerLink]="['/products/', product.id]"
+          [routerLink]="['/products', product.id]"
         />
         <div class="card-body">
-          <h5 class="card-title bg-gradient">
+          <h5 class="card-title bg-gradient text-success">
             {{ product.title | titlecase }}
           </h5>
           <p class="card-text">
-            {{ product.description }}
+            {{ product.desc }}
           </p>
           <p class="card-text">{{ product.price | currency: "$" }}</p>
           <a class="btn btn-dark" (click)="addToCart(product)">Sepete Ekle</a>
