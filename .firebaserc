@@ -1,13 +1,4 @@
 {
-  "targets": {
-    "ecommerceauth-30ba7": {
-      "hosting": {
-        "ecommerce": [
-          "ecommerceauth-30ba7"
-        ]
-      }
-    }
-  },
   "projects": {
     "default": "ecommerceauth-30ba7"
   }
