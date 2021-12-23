@@ -193,4 +193,7 @@ export class ProductService {
   getProductById(id: number) {
     return this.products.find((product) => product.id === id);
   }
+  getProductSize() {
+    return this.products.length;
+  }
 }

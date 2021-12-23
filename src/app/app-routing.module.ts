@@ -1,14 +1,14 @@
-import { ThankYouComponent } from './components/thank-you/thank-you.component';
-import { SignupComponent } from './components/signup/signup.component';
-import { ErrorComponent } from './components/error/error.component';
+import { ProductDetailGuard } from './guards/product-detail.guard';
+import { ThankYouComponent } from './shared/thank-you/thank-you.component';
+import { SignupComponent } from './auth/signup/signup.component';
+import { ErrorComponent } from './shared/error/error.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { CartComponent } from './components/cart/cart.component';
-import { ProductsComponent } from './components/products/products.component';
+import { ProductsComponent } from './products/products/products.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ProductComponent } from './components/product/product.component';
-import { LoginComponent } from './components/login/login.component';
-import { AuthGuard } from './guards/auth.guard';
+import { ProductComponent } from './products/product/product.component';
+import { LoginComponent } from './auth/login/login.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -18,6 +18,7 @@ const routes: Routes = [
   {
     path: 'products/:id',
     component: ProductComponent,
+    canActivate: [ProductDetailGuard],
   },
   { path: 'cart', component: CartComponent },
   { path: 'checkout', component: CheckoutComponent },

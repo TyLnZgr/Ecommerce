@@ -1,3 +1,4 @@
+import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { Product } from './../../models/product.model';
 import { CartService } from './../../services/cart.service';
@@ -22,7 +23,8 @@ export class CartComponent implements OnInit {
   constructor(
     private cartService: CartService,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) {}
 
   ngOnInit(): void {
@@ -57,6 +59,9 @@ export class CartComponent implements OnInit {
   }
   removeAll() {
     this.cartService.removeAllItem();
+    this.toastr.success('Your cart has been emptied', '', {
+      positionClass: 'toast-bottom-right',
+    });
   }
   gotoCheckout() {
     this.router.navigate(['/checkout'], { state: { data: this.grandTotal } });

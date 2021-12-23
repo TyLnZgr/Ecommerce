@@ -32,6 +32,7 @@
                 <input
                   type="number"
                   class="qty"
+                  min="1"
                   [value]="product.qty"
                   (blur)="validateInput($event, i)"
                 />
