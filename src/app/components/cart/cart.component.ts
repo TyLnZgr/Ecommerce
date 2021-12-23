@@ -4,7 +4,7 @@ import { Product } from './../../models/product.model';
 import { CartService } from './../../services/cart.service';
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
-
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
@@ -15,6 +15,7 @@ export class CartComponent implements OnInit {
   total: number = 0;
   user: any;
   products: Product[] = [];
+  showModal = false;
   private QtyUpdated(qty: number, index: number) {
     this.products[index].qty = qty;
     this.cartService.setCartData(this.products);
@@ -38,11 +39,10 @@ export class CartComponent implements OnInit {
     this.grandTotal = this.total;
   }
   removeItem(index: number) {
-    if (confirm('Are you sure ? ')) {
-      this.products.splice(index, 1);
-      this.cartService.setCartData(this.products);
-      this.getTotal(this.products);
-    }
+    this.products.splice(index, 1);
+    this.cartService.setCartData(this.products);
+    this.getTotal(this.products);
+    this.showModal = false;
   }
   validateInput(event: any, index: number) {
     const qty = +event.target.value;
@@ -65,5 +65,6 @@ export class CartComponent implements OnInit {
   }
   gotoCheckout() {
     this.router.navigate(['/checkout'], { state: { data: this.grandTotal } });
+    this.cartService.removeCart();
   }
 }

@@ -48,4 +48,8 @@ export class CartService {
     }
     this.setCartData(this.placeHolder);
   }
+  removeCart() {
+    this.placeHolder = [];
+    this.setCartData(this.placeHolder);
+  }
 }

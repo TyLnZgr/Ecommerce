@@ -27,7 +27,9 @@ export class SignupComponent implements OnInit {
       .signup(this.user.email, this.user.password)
       .then(() => {
         this.router.navigate(['/products']);
-        this.toastr.success('You are now logged in');
+        this.toastr.success('You are now logged in', '', {
+          positionClass: 'toast-bottom-right',
+        });
       })
       .catch((err) => {
         this.toastr.error(err);
@@ -38,7 +40,9 @@ export class SignupComponent implements OnInit {
       .signinWithGoogle()
       .then(() => {
         this.router.navigate(['/products']);
-        this.toastr.success('You are now logged in');
+        this.toastr.success('You are now logged in', '', {
+          positionClass: 'toast-bottom-right',
+        });
       })
       .catch((err) => {
         this.toastr.error(err);
