@@ -26,8 +26,8 @@ export class ProductService {
       1,
       [
         'assets/img/excalibur.jfif',
-        'assets/img/lenova2.jfif',
-        'assets/img/lenova3.jfif',
+        'assets/img/ex2.jfif',
+        'assets/img/ex3.jfif',
       ]
     ),
     new Product(
@@ -36,11 +36,7 @@ export class ProductService {
       'Monster Abra A5 V16.7.3 Intel Core I5 11400H 16GB 500GB SSD GTX1650 Freedos 15.6 Fhd Taşınabilir Bilgisayar',
       1300,
       1,
-      [
-        'assets/img/monster.jfif',
-        'assets/img/lenova2.jfif',
-        'assets/img/lenova3.jfif',
-      ]
+      ['assets/img/monster.jfif', 'assets/img/mo2.jfif', 'assets/img/mo1.jfif']
     ),
     new Product(
       4,
@@ -48,11 +44,7 @@ export class ProductService {
       'Casper Nirvana X500.1065-8V00X-G-F Intel Core i7 1065G7 8GB 500GB SSD Freedos 15.6 FHD Taşınabilir Bilgisayar',
       1300,
       1,
-      [
-        'assets/img/casper.jfif',
-        'assets/img/lenova2.jfif',
-        'assets/img/lenova3.jfif',
-      ]
+      ['assets/img/casper.jfif', 'assets/img/cas2.jfif', 'assets/img/ex3.jfif']
     ),
     new Product(
       5,
@@ -60,11 +52,7 @@ export class ProductService {
       'Asus TUF F17 FX706HEB-HX129 Intel Core i7 11800H 16GB 1TB SSD RTX3050 Ti Freedos 17.3 FHD',
       1500,
       1,
-      [
-        'assets/img/asus.jfif',
-        'assets/img/asus1.jfif',
-        'assets/img/lenova3.jfif',
-      ]
+      ['assets/img/asus.jfif', 'assets/img/asus2.jfif', 'assets/img/asus3.jfif']
     ),
     new Product(
       6,
@@ -72,7 +60,7 @@ export class ProductService {
       'Hp 15S-FQ2027NT Intel Core i5 1135G7 8GB 512GB SSD 15.6 Fhd Taşınabilir Bilgisayar 2N2M8EA',
       800,
       1,
-      ['assets/img/hp.jfif', 'assets/img/asus1.jfif', 'assets/img/lenova3.jfif']
+      ['assets/img/hp.jfif', 'assets/img/asus.jfif', 'assets/img/lenova3.jfif']
     ),
     new Product(
       7,
@@ -80,11 +68,7 @@ export class ProductService {
       'Asus X509UA-BR325 Intel Core i3 7020U 4GB 256GB SSD Freedos 15.6 Taşınabilir Bilgisayar',
       500,
       1,
-      [
-        'assets/img/asus2.jfif',
-        'assets/img/asus.jfif',
-        'assets/img/lenova3.jfif',
-      ]
+      ['assets/img/asus2.jfif', 'assets/img/asus.jfif', 'assets/img/asus3.jfif']
     ),
     new Product(
       8,
@@ -107,7 +91,7 @@ export class ProductService {
       [
         'assets/img/lenova2.jfif',
         'assets/img/lenova3.jfif',
-        'assets/img/lenova3.jfif',
+        'assets/img/lenova.jfif',
       ]
     ),
     new Product(
@@ -116,11 +100,7 @@ export class ProductService {
       'Huawei Matebook D 16 AMD Ryzen 5 4600H 16GB 512GB SSD Windows 10 Home 16.1 FHD Taşınabilir Bilgisayar',
       1030,
       1,
-      [
-        'assets/img/huawei.jfif',
-        'assets/img/lenova3.jfif',
-        'assets/img/lenova3.jfif',
-      ]
+      ['assets/img/huawei.jfif', 'assets/img/asus.jfif', 'assets/img/ex2.jfif']
     ),
     new Product(
       11,
@@ -128,11 +108,7 @@ export class ProductService {
       'Asus D409DA-BV158 AMD Ryzen 3 3200U 4GB 256GB SSD 14 Freedos Taşınabilir Bilgisayar',
       430,
       1,
-      [
-        'assets/img/asus3.jfif',
-        'assets/img/lenova3.jfif',
-        'assets/img/asus2.jfif',
-      ]
+      ['assets/img/asus3.jfif', 'assets/img/asus.jfif', 'assets/img/asus2.jfif']
     ),
     new Product(
       12,
@@ -143,7 +119,7 @@ export class ProductService {
       [
         'assets/img/lenova3.jfif',
         'assets/img/lenova2.jfif',
-        'assets/img/asus2.jfif',
+        'assets/img/lenova.jfif',
       ]
     ),
     new Product(

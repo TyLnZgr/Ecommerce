@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist/ecommerce",
+    "public": "dist/commerce",
     "ignore": [
       "firebase.json",
       "**/.*",
